@@ -41,50 +41,50 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("w-screen overflow-x-hidden", readexPro.className)}>
-        <div className="flex min-h-screen">
-          <Sidebar>
-            <SidebarHeader>
-              <SidebarTitle>Questing System</SidebarTitle>
-              <SidebarDescription>Software project</SidebarDescription>
-            </SidebarHeader>
-            <SidebarContent>
-              <SidebarGroup title="Planning">
-                <SidebarItem icon={TimelineIcon} active>
-                  Timeline
-                </SidebarItem>
-                <SidebarItem icon={BacklogIcon}>Backlog</SidebarItem>
-                <SidebarItem icon={BoardIcon}>Board</SidebarItem>
-                <SidebarItem icon={CalendarIcon}>Calendar</SidebarItem>
-                <SidebarItem icon={ListIcon}>List</SidebarItem>
-                <SidebarItem icon={GoalsIcon} className="px-4 gap-4">
-                  Goals
-                </SidebarItem>
-                <SidebarItem icon={IssuesIcon}>Issues</SidebarItem>
-              </SidebarGroup>
-              <SidebarGroup title="Development">
-                <SidebarItem icon={CodeIcon}>Code</SidebarItem>
-                <SidebarItem icon={SecurityIcon}>Security</SidebarItem>
-                <SidebarItem icon={ReleaseIcon}>Release</SidebarItem>
-              </SidebarGroup>
-              <SidebarGroup title="Operations">
-                <SidebarItem icon={DeploymentsIcon}>Deployments</SidebarItem>
-              </SidebarGroup>
-            </SidebarContent>
-            <SidebarFooter>
-              <p className="text-white/40 text-xs">
-                You&apos;re in a team-managed project
-              </p>
-            </SidebarFooter>
-          </Sidebar>
+      <body
+        className={cn(
+          "w-screen h-screen grid grid-cols-[auto_1fr] overflow-hidden",
+          readexPro.className
+        )}
+      >
+        <Sidebar>
+          <SidebarHeader>
+            <SidebarTitle>Questing System</SidebarTitle>
+            <SidebarDescription>Software project</SidebarDescription>
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarGroup title="Planning">
+              <SidebarItem icon={TimelineIcon} active>
+                Timeline
+              </SidebarItem>
+              <SidebarItem icon={BacklogIcon}>Backlog</SidebarItem>
+              <SidebarItem icon={BoardIcon}>Board</SidebarItem>
+              <SidebarItem icon={CalendarIcon}>Calendar</SidebarItem>
+              <SidebarItem icon={ListIcon}>List</SidebarItem>
+              <SidebarItem icon={GoalsIcon} className="px-4 gap-4">
+                Goals
+              </SidebarItem>
+              <SidebarItem icon={IssuesIcon}>Issues</SidebarItem>
+            </SidebarGroup>
+            <SidebarGroup title="Development">
+              <SidebarItem icon={CodeIcon}>Code</SidebarItem>
+              <SidebarItem icon={SecurityIcon}>Security</SidebarItem>
+              <SidebarItem icon={ReleaseIcon}>Release</SidebarItem>
+            </SidebarGroup>
+            <SidebarGroup title="Operations">
+              <SidebarItem icon={DeploymentsIcon}>Deployments</SidebarItem>
+            </SidebarGroup>
+          </SidebarContent>
+          <SidebarFooter>
+            <p className="text-white/40 text-xs">
+              You&apos;re in a team-managed project
+            </p>
+          </SidebarFooter>
+        </Sidebar>
 
-          <main
-            className="flex-1 p-6 overflow-y-auto ml-[240px] space-y-4"
-            id="main"
-          >
-            {children}
-          </main>
-        </div>
+        <main className="overflow-y-auto p-6 space-y-4 h-full" id="main">
+          {children}
+        </main>
       </body>
     </html>
   );
