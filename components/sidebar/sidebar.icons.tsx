@@ -43,7 +43,7 @@ export function CalendarIcon(): JSX.Element {
     <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
       <path
         fill="currentcolor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M4.995 5h14.01C20.107 5 21 5.895 21 6.994v12.012A1.994 1.994 0 0 1 19.005 21H4.995A1.995 1.995 0 0 1 3 19.006V6.994C3 5.893 3.892 5 4.995 5M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9zm1-5a1 1 0 0 1 2 0v1H6zm10 0a1 1 0 0 1 2 0v1h-2zm-9 9v-2.001h2V13zm8 0v-2.001h2V13zm-4 0v-2.001h2.001V13zm-4 4v-2h2v2zm4 0v-2h2.001v2zm4 0v-2h2v2z"
       ></path>
     </svg>
@@ -53,7 +53,7 @@ export function CalendarIcon(): JSX.Element {
 export function ListIcon(): JSX.Element {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-      <g fill="currentcolor" fill-rule="evenodd">
+      <g fill="currentcolor" fillRule="evenodd">
         <rect width="8" height="2" x="10" y="15" rx="1"></rect>
         <rect width="2" height="2" x="6" y="15" rx="1"></rect>
         <rect width="8" height="2" x="10" y="11" rx="1"></rect>
@@ -87,7 +87,7 @@ export function GoalsIcon(): JSX.Element {
 export function IssuesIcon(): JSX.Element {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-      <g fill="currentcolor" fill-rule="evenodd">
+      <g fill="currentcolor" fillRule="evenodd">
         <path
           fillRule="nonzero"
           d="M5 12.99C5 13 19.01 13 19.01 13 19 13 19 5.01 19 5.01 19 5 5 5 5 5zM3 5.01C3 3.9 3.89 3 5 3h14.01A2 2 0 0 1 21 5.01v7.98A2 2 0 0 1 19.01 15H5a2 2 0 0 1-2-2.01zM19 19c0 1.11-.9 2-2.01 2H7.01A2.01 2.01 0 0 1 5 19zm1-3a2 2 0 0 1-1.99 2H5.99A2 2 0 0 1 4 16z"
