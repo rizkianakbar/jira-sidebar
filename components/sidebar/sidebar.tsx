@@ -15,48 +15,46 @@ export const Sidebar = ({ children }: React.HTMLAttributes<HTMLDivElement>) => {
     <aside
       ref={sidebarRef}
       className={cn(
-        "group fixed left-0 select-none bg-background w-[240px] min-w-[20px] max-w-[535px]",
+        "group relative select-none bg-background w-[240px] min-w-[20px] max-w-[535px]",
         !isSidebarOpen ? "fixed top-0 left-0 !w-[20px] h-full z-[9985]" : ""
       )}
     >
-      <div className="relative">
+      <div
+        onMouseDown={resizeSidebar}
+        className={cn(
+          "absolute top-0 bottom-0 right-[-21px] w-[24px] z-[9990] transition-colors duration-200 ease-in-out",
+          isSidebarOpen ? "cursor-ew-resize" : "cursor-default"
+        )}
+      >
         <div
-          onMouseDown={resizeSidebar}
           className={cn(
-            "absolute top-0 bottom-0 right-[-21px] w-[24px] z-[9990] transition-colors duration-200 ease-in-out",
-            isSidebarOpen ? "cursor-ew-resize" : "cursor-default"
+            "absolute top-0 bottom-0 left-0 w-[3px] z-[9995] bg-[#282e33] transition-colors duration-200 ease-in-out",
+            !isSidebarOpen ? "hover:bg-[#282e33]" : "hover:bg-[#579DFF]"
+          )}
+        />
+      </div>
+
+      <button
+        type="button"
+        className={cn(
+          "absolute top-10 right-[-10px] z-[9999] flex items-center justify-center w-[24px] h-[24px] bg-[#282e33] text-white/40 active:bg-[#85b8ff] hover:bg-primary group-hover:opacity-100 appearance-none user-select-none rounded-full border-none !cursor-pointer transition-all duration-200 ease-in-out",
+          isSidebarOpen ? "cursor-ew-resize" : "cursor-ew-resize"
+        )}
+        onClick={isSidebarOpen ? closeSidebar : openSidebar}
+      >
+        <CaretIcon direction={isSidebarOpen ? "left" : "right"} />
+      </button>
+
+      <div className="relative overflow-hidden h-screen">
+        <div
+          className={cn(
+            "absolute top-0 bottom-0 left-0 w-full min-w-[240px] overflow-y-auto transition-transform duration-200 ease-in-out",
+            !isSidebarOpen
+              ? "pointer-events-none group-hover:pointer-events-auto"
+              : ""
           )}
         >
-          <div
-            className={cn(
-              "absolute top-0 bottom-0 left-0 w-[3px] z-[9995] bg-[#282e33] transition-colors duration-200 ease-in-out",
-              !isSidebarOpen ? "hover:bg-[#282e33]" : "hover:bg-[#579DFF]"
-            )}
-          />
-        </div>
-
-        <button
-          type="button"
-          className={cn(
-            "absolute top-10 right-[-10px] z-[9999] flex items-center justify-center w-[24px] h-[24px] bg-[#282e33] text-white/40 active:bg-[#85b8ff] hover:bg-primary group-hover:opacity-100 appearance-none user-select-none rounded-full border-none !cursor-pointer transition-all duration-200 ease-in-out",
-            isSidebarOpen ? "cursor-ew-resize" : "cursor-ew-resize"
-          )}
-          onClick={isSidebarOpen ? closeSidebar : openSidebar}
-        >
-          <CaretIcon direction={isSidebarOpen ? "left" : "right"} />
-        </button>
-
-        <div className="relative overflow-hidden h-screen">
-          <div
-            className={cn(
-              "absolute top-0 bottom-0 left-0 w-full min-w-[240px] overflow-y-auto transition-transform duration-200 ease-in-out",
-              !isSidebarOpen
-                ? "pointer-events-none group-hover:pointer-events-auto"
-                : ""
-            )}
-          >
-            <div className="py-8 flex flex-col h-full gap-6">{children}</div>
-          </div>
+          <div className="py-8 flex flex-col h-full gap-6">{children}</div>
         </div>
       </div>
     </aside>
